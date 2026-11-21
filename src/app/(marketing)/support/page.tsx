@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
-import { Mail, MessageCircle, BookOpen, Zap } from "lucide-react";
-export const metadata: Metadata = { title: "Support — Spray Scribe" };
+import { Mail, MessageCircle, BookOpen } from "lucide-react";
 
 const faqs = [
   { q: "How do I get more credits?", a: "You can upgrade your plan on the Pricing page to get more monthly credits, or wait for your credits to reset at the start of your next billing cycle." },

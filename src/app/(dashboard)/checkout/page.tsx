@@ -371,8 +371,8 @@ function CheckoutContent() {
                     <input
                       type="text"
                       value={couponCode}
-                      onChange={e => { setCouponCode(e.target.value.toUpperCase()); setCouponError(""); }}
-                      onKeyDown={e => e.key === "Enter" && validateCoupon()}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setCouponCode(e.target.value.toUpperCase()); setCouponError(""); }}
+                      onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => e.key === "Enter" && validateCoupon()}
                       placeholder="LAUNCH50"
                       className="flex-1 px-4 py-3 rounded-xl bg-white/05 border border-white/10 text-white text-sm font-mono placeholder-gray-600 focus:outline-none focus:border-teal-500/50 transition-colors"
                     />
