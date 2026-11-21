@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 
 export async function PATCH(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const session = await auth();
@@ -12,10 +12,9 @@ export async function PATCH(
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const { id } = params;
+    const { id } = await params;
     const updates = await req.json();
 
-    // Specific field validation if needed
     if (updates.role && !["USER", "ADMIN"].includes(updates.role)) {
       return NextResponse.json({ error: "Invalid role" }, { status: 400 });
     }
